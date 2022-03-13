@@ -1,16 +1,13 @@
 # counter_riverpod
 
-Counter App with Riverpod
+This small challenge shows how to implement the Flutter Counter App with Riverpod State Management.
+For simplicity we work only in the main.dart file.
 
 ## Getting Started
+1. Create a new Flutter Project or check out the main branch to get the starting code.
+2. Look at the code and make sure you can launch the app on a smartphone or simulator.
+3. Add the flutter_riverpod dependency to the project and wrap your App with a ProviderScope Widget.
+4. Create a new Provider which holds an integer, starting with 0.
+5. Consume the provided integer and show it's current state.
+6. When the user clicks on the FloatingActionButton increment it's state by one.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
