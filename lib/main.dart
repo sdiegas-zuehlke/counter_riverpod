@@ -49,12 +49,14 @@ class MyHomePage extends ConsumerWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () => _incrementCounter(ref),
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
     );
   }
 
-  void _incrementCounter() {}
+  void _incrementCounter(WidgetRef ref) {
+    ref.read(numberProvider.state).state++;
+  }
 }
