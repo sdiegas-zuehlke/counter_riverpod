@@ -22,29 +22,17 @@ class MyApp extends StatelessWidget {
 
 final numberProvider = StateProvider<int>((ref) => 0);
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends ConsumerWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final numberState = ref.watch(numberProvider);
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(title),
       ),
       body: Center(
         child: Column(
@@ -54,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
               'You have pushed the button this many times:',
             ),
             Text(
-              '$_counter',
+              '$numberState',
               style: Theme.of(context).textTheme.headline4,
             ),
           ],
@@ -67,4 +55,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+
+  void _incrementCounter() {}
 }
