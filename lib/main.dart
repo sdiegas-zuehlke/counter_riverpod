@@ -57,6 +57,6 @@ class MyHomePage extends ConsumerWidget {
   }
 
   void _incrementCounter(WidgetRef ref) {
-    ref.read(numberProvider.state).state++;
+    ref.watch(numberProvider.state).state++;
   }
 }
