@@ -10,4 +10,4 @@ For simplicity we work only in the main.dart file.
 4. Create a new Provider which holds an integer, starting with 0.
 5. Consume the provided integer and show it's current state.
 6. When the user clicks on the FloatingActionButton increment it's state by one.
-
+7. The test in the widget_test.dart file is failing, fix it.
