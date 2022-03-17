@@ -22,6 +22,17 @@ class MyApp extends StatelessWidget {
 
 final numberProvider = StateProvider.autoDispose<int>((ref) => 0);
 
+final motivationalTextProvider = Provider.autoDispose<String>((ref) {
+  final numberValue = ref.watch(numberProvider);
+  if (numberValue < 11) {
+    return "Not enough stay tuned!";
+  } else if (numberValue < 21) {
+    return "Not bad, come there is possible even more!";
+  } else {
+    return "Ok you can stop now!";
+  }
+});
+
 class MyHomePage extends ConsumerWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
@@ -30,6 +41,7 @@ class MyHomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final numberState = ref.watch(numberProvider);
+    final motivationalText = ref.watch(motivationalTextProvider);
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
@@ -38,8 +50,8 @@ class MyHomePage extends ConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+            Text(
+              motivationalText,
             ),
             Text(
               '$numberState',
